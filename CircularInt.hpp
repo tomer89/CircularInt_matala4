@@ -7,10 +7,13 @@
 class CircularInt{
     public:
         CircularInt(int begin , int end);
+        CircularInt(int begin , int end , int current);
         CircularInt(const CircularInt &ci);
         
         //***getters&setters***
         int getCurrent() const;
+        int getBegin() const;
+        int getEnd() const;
         void setCurrent(int);
         
         
@@ -22,6 +25,26 @@ class CircularInt{
         CircularInt& operator++(int);
         //prefix
         CircularInt& operator++();
+        
+        CircularInt& operator-();
+        
+        friend CircularInt operator+(const CircularInt& arg1,const CircularInt& arg2);
+         
+        CircularInt& operator+();
+        
+        friend CircularInt operator-(const int &c1, const CircularInt &c2);
+        
+        CircularInt* operator*=(const int& rhs);
+        
+        friend CircularInt operator/(const int &c1, const CircularInt &c2);
+        
+        friend CircularInt operator/(const CircularInt &c2,const int &c1);
+        
+        //end void operator/(const int &c1);
+        
+        CircularInt* operator/ ( int num);
+
+
     private:
         int begin,end,current;
 };
