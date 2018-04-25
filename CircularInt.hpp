@@ -26,15 +26,16 @@ class CircularInt{
         //prefix
         CircularInt& operator++();
         
-        CircularInt& operator-();
-        
         friend CircularInt operator+(const CircularInt& arg1,const CircularInt& arg2);
          
         CircularInt& operator+();
         
-        friend CircularInt operator-(const int &c1, const CircularInt &c2);
         
-        CircularInt* operator*=(const int& rhs);
+        
+        friend CircularInt operator-(const int &c1, const CircularInt &c2);
+        friend CircularInt operator-(const CircularInt & c);
+        
+        CircularInt& operator*=(const int& i);
         
         friend CircularInt operator/(const int &c1, const CircularInt &c2);
         
