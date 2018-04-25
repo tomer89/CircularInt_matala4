@@ -68,39 +68,22 @@ CircularInt& CircularInt::operator++(int i){
 
 
 
-
-/*CircularInt& CircularInt::operator-(){
-    setCurrent((end-current)%end);
-    return *this;
-}*/
-
-
-
 CircularInt operator+(const CircularInt& arg1,const CircularInt& arg2){
     CircularInt c = CircularInt(arg1.begin , arg1.end , moduloC(arg1.begin,arg1.end,arg1.current + arg2.current));
     return c;
 }
 
 
-
-//tomer - TODO this is not working good
-
 CircularInt operator-(const int &arg1, const CircularInt &arg2)
 {
-	// use the Cents constructor and operator-(int, int)
-	// we can access m_cents directly because this is a friend function
-	//int y;
 	CircularInt tmp = CircularInt(arg2.getBegin() , arg2.getEnd() , moduloC(arg2.getBegin(),arg2.getEnd(),(arg1 - arg2.getCurrent())));
     CircularInt &c =  tmp;
-	
 	return tmp;
 }
 
+
 CircularInt operator-(const CircularInt & c)
 {
-    //CircularInt v;
-	// use the Cents constructor and operator-(int, int)
-	// we can access m_cents directly because this is a friend function
 	//TOMER: ASK
 	CircularInt tmp = CircularInt(c.getBegin() , c.getEnd() , moduloC(c.begin,c.end,( c.getEnd() - c.getCurrent())));
     CircularInt &ci =  tmp;
@@ -108,25 +91,40 @@ CircularInt operator-(const CircularInt & c)
 }
 
 //division:
-CircularInt* CircularInt::operator/ (int num) {
-    CircularInt* c = this;
-    return c; // call the first one
+CircularInt CircularInt::operator/ (int num) {
+    // TWO OPTIONS: 11 (since 11*2=10) or 5 (since 5*2=10 too).
+    bool flag = true;
+    int i = begin;
+    for( ; i <= end && flag ;i++ ){
+        if(i * num== current)
+            flag = false;
+    }
+    if(!flag){
+        current = i - 1;
+        CircularInt c = CircularInt(begin,end,(i-1));
+        return c; // call the first one
+    }
+    else{
+        throw (std::string)"No Answer";
+    }
+    
+
 }
 
+
 CircularInt& CircularInt::operator*=(const int& i){
-    int j = i;
-    CircularInt c = CircularInt(begin,end,current);;
+    
+    int j = std::abs(i);
+    CircularInt c = CircularInt(begin,end,current);
     while(j > 1){
-        //CircularInt c = CircularInt(begin,end,current);
-        CircularInt c = c+c;
-        
+        c.setCurrent((c+c).getCurrent());               
         j--;
     }
     if(j == 0){
-        setCurrent(0);
+        c.setCurrent(0);
     }
-    //what to do with j < 0
-    setCurrent(added.getCurrent());
+    
+    setCurrent(moduloC(begin,end,c.getCurrent()));
     return *this; 
 }
 

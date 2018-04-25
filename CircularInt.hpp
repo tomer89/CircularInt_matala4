@@ -43,7 +43,7 @@ class CircularInt{
         
         //end void operator/(const int &c1);
         
-        CircularInt* operator/ ( int num);
+        CircularInt operator/ ( int num);
 
 
     private:
