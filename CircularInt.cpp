@@ -132,15 +132,18 @@ CircularInt operator-(const CircularInt & c)
 
 
 
-
-
-//division:
+/**
+ * CLASS / CLASS
+ * CLASS / INT
+ * INT / CLASS
+ * 
+ */
 CircularInt operator/(const CircularInt &c1, const CircularInt &c2){
     // TWO OPTIONS: 11 (since 11*2=10) or 5 (since 5*2=10 too).
     bool flag = true;
     int i = c1.begin;
     for( ; i <= c1.end && flag ;i++ ){
-        if(i * c2.current== c1.current)
+        if(moduloC(c1.begin,c1.end,i * c2.current)== c1.current)
             flag = false;
     }
     if(!flag){
@@ -158,7 +161,7 @@ CircularInt operator/(const CircularInt &c1, const int &int2){
     bool flag = true;
     int i = c1.begin;
     for( ; i <= c1.end && flag ;i++ ){
-        if(i * int2== c1.current)
+        if(moduloC(c1.begin,c1.end,i * int2)== c1.current)
             flag = false;
     }
     if(!flag){
@@ -175,7 +178,7 @@ CircularInt operator/(const int &int1, const CircularInt &c2){
     bool flag = true;
     int i = c2.begin;
     for( ; i <= c2.end && flag ;i++ ){
-        if(i * c2.current== int1)
+        if(moduloC(c2.begin,c2.end,i * c2.current)== int1)
             flag = false;
     }
     if(!flag){
@@ -187,25 +190,8 @@ CircularInt operator/(const int &int1, const CircularInt &c2){
         throw (std::string)"No Answer";
     }
 }
-/*CircularInt CircularInt::operator/ (int num) {
-    // TWO OPTIONS: 11 (since 11*2=10) or 5 (since 5*2=10 too).
-    bool flag = true;
-    int i = begin;
-    for( ; i <= end && flag ;i++ ){
-        if(i * num== current)
-            flag = false;
-    }
-    if(!flag){
-        current = i - 1;
-        CircularInt c = CircularInt(begin,end,(i-1));
-        return c; // call the first one
-    }
-    else{
-        throw (std::string)"No Answer";
-    }
-    
 
-}*/
+//END OF / **********
 
 
 CircularInt& CircularInt::operator*=(const int& i){
