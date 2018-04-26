@@ -1,4 +1,36 @@
 #include <iostream>
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "CircularInt.hpp"
+#include "catch.hpp"
+
+std::string cirToString(const CircularInt &circularInt)
+{
+    std::stringstream ss;
+    ss << circularInt ;
+    return ss.str();
+}
+
+TEST_CASE("equals","==")
+{
+    CircularInt hour {1, 10};
+    CircularInt hour2 {1, 10};
+    bool test1 = (hour == hour2);
+    REQUIRE(test1);
+    REQUIRE(hour == 1 );
+    REQUIRE( 1 == hour );
+}
+
+
+
+
+
+
+
+
+
+
+
+/*#include <iostream>
 using namespace std;
 
 #include "CircularInt.hpp"
@@ -8,8 +40,10 @@ using namespace std;
  *for compiling use:         g++ -std=c++0x main.cpp CircularInt.cpp
  * All operators:            https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B
  * For deeper understanding: read this: https://stackoverflow.com/questions/8293426/error-invalid-initialization-of-non-const-reference-of-type-int-from-an-rva
- * course github:            https://github.com/erelsgl/ariel-cpp-5778/tree/master/week04-operator-overloading/homeworkl
+ * course github:            https://github.com/erelsgl/ariel-cpp-5778/tree/master/week04-operator-overloading/homework
 */
+
+/*
 int main() {
 	CircularInt hour {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
 	cout << hour << endl;                     // 1
@@ -17,7 +51,7 @@ int main() {
 	(hour += 2)++;  cout << hour << endl;     // 8
 	hour += 18;   cout << hour << endl;       // 2   (18 hours after 8)
 	cout << -hour << endl;                    // 10  (2 hours before midnight)
-	hour = 1 - hour; cout << hour << endl;    // 11  (2 hours before 1)*/
+	hour = 1 - hour; cout << hour << endl;    // 11  (2 hours before 1)
 	cout << hour+hour << endl;                // 10 (11 hours after 11)
 	
 	hour *= 2;   cout << hour << endl;        // 10 (11*2 = 11+11)
@@ -40,4 +74,4 @@ int main() {
 	//  * when is there exactly one answer to a/b?
 	//  * when are there two or more answers to a/b?
 	//	* when is there no answer to a/b?
-}
+}*/

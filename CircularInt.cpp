@@ -131,6 +131,28 @@ CircularInt& CircularInt::operator*=(const int& i){
 
 
 
+bool operator==(const CircularInt& arg1,const CircularInt& arg2){
+    if(arg1.begin == arg2.begin && arg1.end == arg2.end && arg1.current == arg2.current)
+        return true;
+    else
+        return false;
+}
+
+bool operator==(const int& arg1,const CircularInt& arg2){
+    if(arg2.current - arg2.begin + 1 == arg1 )
+        return true;
+    else
+        return false;
+}
+
+bool operator==(const CircularInt& arg1,const int& arg2){
+    if(arg1.current - arg1.begin + 1 == arg2)
+        return true;
+    else
+        return false;
+}
+
+
 //getters:
 int CircularInt::getBegin() const{
     return begin;

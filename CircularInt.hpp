@@ -46,6 +46,10 @@ class CircularInt{
         CircularInt operator/ ( int num);
 
 
+        friend bool operator==(const CircularInt& arg1,const CircularInt& arg2);
+        friend bool operator==(const int& arg1,const CircularInt& arg2);
+        friend bool operator==(const CircularInt& arg1,const int& arg2);
+
     private:
         int begin,end,current;
 };
