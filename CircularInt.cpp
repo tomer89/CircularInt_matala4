@@ -66,10 +66,26 @@ CircularInt& CircularInt::operator++(int i){
     return result;  
 }
 
-
+/**
+ * CLASS - CLASS
+ * CLASS - INT
+ * INT - CLASS
+ * -CLASS
+ * 
+ */
 
 CircularInt operator+(const CircularInt& arg1,const CircularInt& arg2){
     CircularInt c = CircularInt(arg1.begin , arg1.end , moduloC(arg1.begin,arg1.end,arg1.current + arg2.current));
+    return c;
+}
+
+CircularInt operator+(const CircularInt& arg1,const int& int2){
+    CircularInt c = CircularInt(arg1.begin , arg1.end , moduloC(arg1.begin,arg1.end,arg1.current + int2));
+    return c;
+}
+
+CircularInt operator+(const int& int1,const CircularInt& arg2){
+    CircularInt c = CircularInt(arg2.begin , arg2.end , moduloC(arg2.begin,arg2.end,arg2.current + int1));
     return c;
 }
 
@@ -108,6 +124,15 @@ CircularInt operator-(const CircularInt & c)
     CircularInt &ci =  tmp;
 	return tmp;
 }
+
+
+// END OF - ************
+
+
+
+
+
+
 
 //division:
 CircularInt CircularInt::operator/ (int num) {
