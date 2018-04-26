@@ -52,14 +52,24 @@ class CircularInt{
         
         CircularInt& operator*=(const int& i);
         
+        /**
+         * CLASS/CLASS
+         * INT/CLASS
+         * CLASS/INT
+         * 
+         */ 
+        friend CircularInt operator/(const CircularInt &c1, const CircularInt &c2);
+        friend CircularInt operator/(const CircularInt &c1, const int &int2);
+        friend CircularInt operator/(const int &int1, const CircularInt &c2);
+        //friend CircularInt operator/(const CircularInt & c);
+        /*
         friend CircularInt operator/(const int &c1, const CircularInt &c2);
-        
         friend CircularInt operator/(const CircularInt &c2,const int &c1);
         
         //end void operator/(const int &c1);
         
         CircularInt operator/ ( int num);
-
+*/
         /**
          * CLASS == CLASS
          * INT == CLASS
