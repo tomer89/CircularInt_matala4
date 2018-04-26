@@ -9,6 +9,42 @@ std::string cirToString(const CircularInt &circularInt)
     ss << circularInt ;
     return ss.str();
 }
+TEST_CASE("submit","-")
+{
+    CircularInt hour {1, 12};
+    hour = hour - 3;
+    REQUIRE(cirToString(hour) == "10");
+    CircularInt hour2 {1, 12};
+    hour2 = 2 - hour ;
+    REQUIRE(cirToString(hour2) == "4");
+    hour = hour - hour2 ;
+    REQUIRE(cirToString(hour) == "6");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*#include <iostream>
+#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#include "CircularInt.hpp"
+#include "catch.hpp"
+
+std::string cirToString(const CircularInt &circularInt)
+{
+    std::stringstream ss;
+    ss << circularInt ;
+    return ss.str();
+}
 
 TEST_CASE("equals","==")
 {
@@ -19,7 +55,7 @@ TEST_CASE("equals","==")
     REQUIRE(hour == 1 );
     REQUIRE( 1 == hour );
 }
-
+*/
 
 
 
@@ -41,6 +77,8 @@ using namespace std;
  * All operators:            https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B
  * For deeper understanding: read this: https://stackoverflow.com/questions/8293426/error-invalid-initialization-of-non-const-reference-of-type-int-from-an-rva
  * course github:            https://github.com/erelsgl/ariel-cpp-5778/tree/master/week04-operator-overloading/homework
+ * automatic check:          http://31.154.73.178:8006/?backend=5676&exercise=EX2
+ * My git:                   https://github.com/tomer89/CircularInt_matala4.git
 */
 
 /*

@@ -73,6 +73,25 @@ CircularInt operator+(const CircularInt& arg1,const CircularInt& arg2){
     return c;
 }
 
+/**
+ * CLASS - CLASS
+ * CLASS - INT
+ * INT -CLASS
+ * -CLASS
+ * 
+ */
+CircularInt operator-(const CircularInt &c1, const CircularInt &c2){
+	CircularInt tmp = CircularInt(c1.getBegin() , c1.getEnd() , moduloC(c1.getBegin(),c1.getEnd(),(c1.getCurrent()- c2.current)));
+    CircularInt &c =  tmp;
+	return tmp;
+}
+
+
+CircularInt operator-(const CircularInt &c1, const int &int2){
+	CircularInt tmp = CircularInt(c1.getBegin() , c1.getEnd() , moduloC(c1.getBegin(),c1.getEnd(),(c1.getCurrent()- int2)));
+    CircularInt &c =  tmp;
+	return tmp;
+}
 
 CircularInt operator-(const int &arg1, const CircularInt &arg2)
 {
