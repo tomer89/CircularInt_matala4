@@ -18,6 +18,9 @@ class CircularInt{
         
         
         //***overloading***
+        
+        
+        
         friend std::ostream& operator<<(std::ostream& os, CircularInt const &circ) ;
         //friend CircularInt operator+=(const int& rhs);
         CircularInt& operator+=(const int& rhs);
@@ -78,6 +81,12 @@ class CircularInt{
         friend bool operator==(const CircularInt& arg1,const CircularInt& arg2);
         friend bool operator==(const int& arg1,const CircularInt& arg2);
         friend bool operator==(const CircularInt& arg1,const int& arg2);
+        
+        
+        
+        CircularInt  & operator= (const CircularInt & other);
+        
+        
 
     private:
         int begin,end,current;

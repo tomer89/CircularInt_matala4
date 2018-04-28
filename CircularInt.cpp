@@ -47,7 +47,7 @@ std::ostream& operator<<(std::ostream& os, CircularInt const &circ)
 } 
 
 
-
+//*** UNARY FUNCS***********************************************
     
 CircularInt& CircularInt::operator+=(const int& rhs){
     setCurrent(moduloC(begin,end,(this->getCurrent()+rhs)));
@@ -66,11 +66,15 @@ CircularInt& CircularInt::operator++(int i){
     return result;  
 }
 
-/**
- * CLASS - CLASS
- * CLASS - INT
- * INT - CLASS
- * -CLASS
+
+
+
+/*** ADDITION FUNCS***********************************************
+
+ * CLASS + CLASS
+ * CLASS + INT
+ * INT + CLASS
+ * +CLASS
  * 
  */
 
@@ -89,7 +93,8 @@ CircularInt operator+(const int& int1,const CircularInt& arg2){
     return c;
 }
 
-/**
+/*** SUBTRACTION FUNCS***********************************************
+ * 
  * CLASS - CLASS
  * CLASS - INT
  * INT -CLASS
@@ -126,13 +131,7 @@ CircularInt operator-(const CircularInt & c)
 }
 
 
-// END OF - ************
-
-
-
-
-
-/**
+/*** DIVISION FUNCS***********************************************
  * CLASS / CLASS
  * CLASS / INT
  * INT / CLASS
@@ -211,7 +210,11 @@ CircularInt& CircularInt::operator*=(const int& i){
 }
 
 
-
+/*** == FUNCS***********************************************
+* CLASS == CLASS
+* INT == CLASS
+* CLASS == INT
+*/
 
 bool operator==(const CircularInt& arg1,const CircularInt& arg2){
     if(arg1.begin == arg2.begin && arg1.end == arg2.end && arg1.current == arg2.current)
@@ -233,6 +236,25 @@ bool operator==(const CircularInt& arg1,const int& arg2){
     else
         return false;
 }
+
+
+
+/***ASSIGNMENT FUNCS***********************************************
+ * int CircularInt::getBegin() const{
+ */ 
+CircularInt& CircularInt::operator=(const CircularInt & other)
+    {
+        if (this != &other) // protect against invalid self-assignment
+        {
+            begin = other.begin;
+            end = other.end;
+            current = other.current;
+        }
+        // by convention, always return *this
+        return *this;
+    }
+
+
 
 
 //getters:
