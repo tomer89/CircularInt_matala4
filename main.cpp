@@ -159,7 +159,7 @@ using namespace std;
 
 int main() {
 	CircularInt hour {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
-	CircularInt hour2 {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
+	CircularInt hour2 {1, 12, 7};                 // <hour is an integer between 1 and 12, like an hour on the clock>
 	cout << hour << endl;                     // 1
 	hour += 4;  cout << hour << endl;         // 5
 	(hour += 2)++;  cout << hour << endl;     // 8
@@ -169,8 +169,7 @@ int main() {
 	cout << hour+hour << endl;                // 10 (11 hours after 11)
 	
 	hour *= 2;   cout << hour << endl;        // 10 (11*2 = 11+11)
-	//hour *= -2;   cout << hour << endl;       // 10 (10*2 = 10+10 = 20 = 8)
-	//hour *= 0; cout <<hour << endl;           //0
+    
 	cout << hour/2 << endl;                   // TWO OPTIONS: 11 (since 11*2=10) or 5 (since 5*2=10 too).
 
     cout << hour;

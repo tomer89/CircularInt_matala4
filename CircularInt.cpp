@@ -131,6 +131,47 @@ CircularInt operator-(const CircularInt & c)
 }
 
 
+
+
+
+
+/*** SUBTRACTION FUNCS***********************************************
+ * 
+ * CLASS * CLASS
+ * CLASS * INT
+ * INT * CLASS
+ * *CLASS
+ * 
+ */
+CircularInt operator*(const CircularInt &c1, const CircularInt &c2){
+	CircularInt tmp = CircularInt(c1.getBegin() , c1.getEnd() , moduloC(c1.getBegin(),c1.getEnd(),(c1.getCurrent() * c2.current)));
+    CircularInt &c =  tmp;
+	return tmp;
+}
+
+
+CircularInt operator*(const CircularInt &c1, const int &int2){
+	CircularInt tmp = CircularInt(c1.getBegin() , c1.getEnd() , moduloC(c1.getBegin(),c1.getEnd(),(c1.getCurrent() * int2)));
+    CircularInt &c =  tmp;
+	return tmp;
+}
+
+CircularInt operator*(const int &arg1, const CircularInt &arg2)
+{
+	CircularInt tmp = CircularInt(arg2.getBegin() , arg2.getEnd() , moduloC(arg2.getBegin(),arg2.getEnd(),(arg1 * arg2.getCurrent())));
+    CircularInt &c =  tmp;
+	return tmp;
+}
+
+
+CircularInt operator*(const CircularInt & c)
+{
+	//TOMER: ASK
+	CircularInt tmp = CircularInt(c.getBegin() , c.getEnd() , moduloC(c.begin,c.end,( c.getCurrent() * c.getCurrent())));
+    CircularInt &ci =  tmp;
+	return tmp;
+}
+
 /*** DIVISION FUNCS***********************************************
  * CLASS / CLASS
  * CLASS / INT

@@ -53,6 +53,23 @@ class CircularInt{
         friend CircularInt operator-(const int &c1, const CircularInt &c2);
         friend CircularInt operator-(const CircularInt & c);
         
+        
+        
+        
+        /**
+         * CLASS * CLASS
+         * CLASS * INT
+         * INT * CLASS
+         * *CLASS
+         */ 
+        friend CircularInt operator*(const CircularInt &c1, const CircularInt &c2);
+        friend CircularInt operator*(const CircularInt &c1, const int &int2);
+        friend CircularInt operator*(const int &c1, const CircularInt &c2);
+        friend CircularInt operator*(const CircularInt & c);
+        
+        
+        
+        
         CircularInt& operator*=(const int& i);
         
         /**
