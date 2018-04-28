@@ -48,11 +48,6 @@ std::ostream& operator<<(std::ostream& os, CircularInt const &circ)
 
 
 //*** UNARY FUNCS***********************************************
-    
-CircularInt& CircularInt::operator+=(const int& rhs){
-    setCurrent(moduloC(begin,end,(this->getCurrent()+rhs)));
-    return *this;
-}
 
 CircularInt& CircularInt::operator++(){
     setCurrent((this->getCurrent() + 1)%end);
@@ -237,9 +232,22 @@ CircularInt operator/(const int &int1, const CircularInt &c2){
 
 
 /**
+ * += int
+ * += Class
  * *= int
  * *= Class
+ * 
  */ 
+
+CircularInt& CircularInt::operator+=(const int& rhs){
+    setCurrent(moduloC(begin,end,(this->getCurrent()+rhs)));
+    return *this;
+}
+
+CircularInt& CircularInt::operator+=(const CircularInt &i){
+    setCurrent(moduloC(begin,end,(this->getCurrent()+i.current)));
+    return *this;
+}
 
 CircularInt& CircularInt::operator*=(const int& i){
     

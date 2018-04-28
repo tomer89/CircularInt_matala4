@@ -69,6 +69,7 @@ class CircularInt{
         
         
         CircularInt& operator+=(const int& rhs);
+        CircularInt& operator+=(const CircularInt &i);
         
         CircularInt& operator*=(const int& i);
         CircularInt& operator*=(const CircularInt &i);
