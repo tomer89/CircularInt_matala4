@@ -237,6 +237,7 @@ CircularInt operator/(const int &int1, const CircularInt &c2){
  * *= int
  * *= Class
  * /= int
+ * -= int
  */ 
 
 CircularInt& CircularInt::operator+=(const int& rhs){
@@ -319,6 +320,11 @@ CircularInt& CircularInt::operator/=(const CircularInt other){
     else{
         throw (std::string)"No Answer";
     }
+}
+
+CircularInt& CircularInt::operator-=(const int& rhs){
+    setCurrent(moduloC(begin,end,(this->getCurrent()-rhs)));
+    return *this;
 }
 
 

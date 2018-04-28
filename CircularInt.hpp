@@ -77,6 +77,7 @@ class CircularInt{
         CircularInt& operator/=(const int& int2);
         CircularInt& operator/=(const CircularInt other);
         
+        CircularInt& operator-=(const int& rhs);
         /**
          * CLASS/CLASS
          * INT/CLASS
