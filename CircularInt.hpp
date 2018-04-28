@@ -106,6 +106,15 @@ class CircularInt{
         friend bool operator==(const CircularInt& arg1,const int& arg2);
         
         
+         /**
+         * CLASS != CLASS
+         * INT != CLASS
+         * CLASS != INT
+         */
+        friend bool operator!=(const CircularInt& arg1,const CircularInt& arg2);
+        friend bool operator!=(const int& arg1,const CircularInt& arg2);
+        friend bool operator!=(const CircularInt& arg1,const int& arg2);
+        
         
         CircularInt  & operator= (const CircularInt & other);
         

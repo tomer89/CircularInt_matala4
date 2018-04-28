@@ -357,6 +357,37 @@ bool operator==(const CircularInt& arg1,const int& arg2){
 
 
 
+
+
+/*** != FUNCS***********************************************
+* CLASS != CLASS
+* INT != CLASS
+* CLASS != INT
+*/
+
+bool operator!=(const CircularInt& arg1,const CircularInt& arg2){
+    if(arg1 == arg2)
+        return false;
+    else
+        true;
+}
+
+bool operator!=(const int& arg1,const CircularInt& arg2){
+    if(arg1 == arg2)
+        return false;
+    else
+        true;
+}
+
+bool operator!=(const CircularInt& arg1,const int& arg2){
+    if(arg1 == arg2)
+        return false;
+    else
+        true;
+}
+
+
+
 /***ASSIGNMENT FUNCS***********************************************
  * int CircularInt::getBegin() const{
  */ 
