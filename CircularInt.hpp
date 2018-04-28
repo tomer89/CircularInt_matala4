@@ -75,6 +75,7 @@ class CircularInt{
         CircularInt& operator*=(const CircularInt &i);
         
         CircularInt& operator/=(const int& int2);
+        CircularInt& operator/=(const CircularInt other);
         
         /**
          * CLASS/CLASS

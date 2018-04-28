@@ -236,7 +236,7 @@ CircularInt operator/(const int &int1, const CircularInt &c2){
  * += Class
  * *= int
  * *= Class
- * 
+ * /= int
  */ 
 
 CircularInt& CircularInt::operator+=(const int& rhs){
@@ -285,6 +285,26 @@ CircularInt& CircularInt::operator*=(const CircularInt &i){
 
 CircularInt& CircularInt::operator/=(const int& int2){
     // TWO OPTIONS: 11 (since 11*2=10) or 5 (since 5*2=10 too).
+    bool flag = true;
+    int i = begin;
+    for( ; i <= end && flag ;i++ ){
+        if(moduloC(begin,end,i * int2) == current)
+            flag = false;
+    }
+    if(!flag){
+        //c.current = i - 1;                                        // since i was incremented last stage
+        CircularInt c = CircularInt(begin,end,(i-1));
+        return c; // call the first one
+    }
+    else{
+        throw (std::string)"No Answer";
+    }
+}
+
+
+CircularInt& CircularInt::operator/=(const CircularInt other){
+    // TWO OPTIONS: 11 (since 11*2=10) or 5 (since 5*2=10 too).
+    int int2 = other.current;
     bool flag = true;
     int i = begin;
     for( ; i <= end && flag ;i++ ){
