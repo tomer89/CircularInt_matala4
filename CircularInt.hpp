@@ -23,7 +23,6 @@ class CircularInt{
         
         friend std::ostream& operator<<(std::ostream& os, CircularInt const &circ) ;
         //friend CircularInt operator+=(const int& rhs);
-        CircularInt& operator+=(const int& rhs);
         //postfix
         CircularInt& operator++(int);
         //prefix
@@ -69,8 +68,11 @@ class CircularInt{
         
         
         
+        CircularInt& operator+=(const int& rhs);
         
         CircularInt& operator*=(const int& i);
+        
+        CircularInt& operator/=(const int& int2);
         
         /**
          * CLASS/CLASS
