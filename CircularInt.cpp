@@ -238,12 +238,29 @@ CircularInt operator/(const int &int1, const CircularInt &c2){
 
 /**
  * *= int
- * 
+ * *= Class
  */ 
 
 CircularInt& CircularInt::operator*=(const int& i){
     
     int j = std::abs(i);
+    CircularInt c = CircularInt(begin,end,current);
+    while(j > 1){
+        c.setCurrent((c+c).getCurrent());               
+        j--;
+    }
+    if(j == 0){
+        c.setCurrent(0);
+    }
+    
+    setCurrent(moduloC(begin,end,c.getCurrent()));
+    return *this; 
+}
+
+
+CircularInt& CircularInt::operator*=(const CircularInt &i){
+    
+    int j = std::abs(i.current);
     CircularInt c = CircularInt(begin,end,current);
     while(j > 1){
         c.setCurrent((c+c).getCurrent());               
