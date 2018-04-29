@@ -341,7 +341,7 @@ CircularInt& CircularInt::operator/=(const int& int2){
     }
     if(!flag){
         //c.current = i - 1;                                        // since i was incremented last stage
-        CircularInt c = CircularInt(begin,end,(i-1));
+        static CircularInt c = CircularInt(begin,end,(i-1));
         return c; // call the first one
     }
     else{
@@ -361,7 +361,7 @@ CircularInt& CircularInt::operator/=(const CircularInt other){
     }
     if(!flag){
         //c.current = i - 1;                                        // since i was incremented last stage
-        CircularInt c = CircularInt(begin,end,(i-1));
+        static CircularInt c = CircularInt(begin,end,(i-1));
         return c; // call the first one
     }
     else{
@@ -574,6 +574,7 @@ CircularInt& CircularInt::operator=(const CircularInt & other)
 CircularInt& CircularInt::operator= (const int & other)
 {
     current = other;
+    return *this;
 }
 
 
