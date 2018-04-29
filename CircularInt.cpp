@@ -46,7 +46,7 @@ std::ostream& operator<<(std::ostream& os, CircularInt const &circ)
     return os;  
 } 
 
-std::istream& operator>> (std::istream& is, CircularInt  dt)
+std::istream& operator>>(std::istream& is, CircularInt& dt)
 {  
     int tmp;
     is>> tmp;

@@ -136,7 +136,7 @@ TEST_CASE("equals","==")
 /**
  * testing casting
  */ 
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+/*#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "CircularInt.hpp"
 #include "catch.hpp"
 
@@ -158,12 +158,12 @@ TEST_CASE("equals","==")
     REQUIRE( hour.getCurrent() == 9 );
     REQUIRE( j = (9 + 7) )
     //REQUIRE( 1 == hour );
-}
+}*/
 
 
 
 
-/*
+
 
 #include <iostream>
 using namespace std;
@@ -180,10 +180,11 @@ using namespace std;
  * My git:                   https://github.com/tomer89/CircularInt_matala4.git
 */
 
-/*
+
 int main() {
 	CircularInt hour {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
 	CircularInt hour2 {1, 12, 7};                 // <hour is an integer between 1 and 12, like an hour on the clock>
+	cin >> hour;
 	cout << hour << endl;                     // 1
 	hour += 4;  cout << hour << endl;         // 5
 	(hour += 2)++;  cout << hour << endl;     // 8
@@ -212,4 +213,4 @@ int main() {
 	//  * when is there exactly one answer to a/b?
 	//  * when are there two or more answers to a/b?
 	//	* when is there no answer to a/b?
-}*/
+}
