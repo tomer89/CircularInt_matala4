@@ -77,6 +77,9 @@ class CircularInt{
         CircularInt& operator/=(const int& int2);
         CircularInt& operator/=(const CircularInt other);
         
+        
+        
+        
         CircularInt& operator-=(const int& rhs);
         /**
          * CLASS/CLASS
@@ -154,7 +157,10 @@ class CircularInt{
         friend bool operator>=(const int& arg1,const CircularInt& arg2);
         friend bool operator>=(const CircularInt& arg1,const int& arg2);
         
+        
+        
         CircularInt  & operator= (const CircularInt & other);
+        CircularInt  & operator= (const int & other);
         
         
 

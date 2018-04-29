@@ -2,8 +2,8 @@
 
 #include "CircularInt.hpp"
 
-int moduloC(int begin,int end,int val){
-    int result = val%(end - begin + 1) + (begin - 1);
+int moduloC(int begin,int end,int modVal){
+    int result = modVal%(end - begin + 1) + (begin - 1);
     if(result < 0){
         result += end;
     }
@@ -514,7 +514,10 @@ CircularInt& CircularInt::operator=(const CircularInt & other)
         return *this;
     }
 
-
+CircularInt& CircularInt::operator= (const int & other)
+{
+    current = other;
+}
 
 
 //getters:
