@@ -69,7 +69,7 @@ CircularInt& CircularInt::operator++(){
 
 //from https://stackoverflow.com/questions/3846296/how-to-overload-the-operator-in-two-different-ways-for-postfix-a-and-prefix?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 CircularInt& CircularInt::operator++(int i){
-    CircularInt result(*this);   // make a copy for result 
+    static CircularInt result(*this);   // make a copy for result 
     ++(*this);                   // Now use the prefix version to do the work
     return result;  
 }
