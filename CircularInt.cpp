@@ -46,9 +46,11 @@ std::ostream& operator<<(std::ostream& os, CircularInt const &circ)
     return os;  
 } 
 
-std::istream& operator>> (std::istream& is, CircularInt const dt);  
+std::istream& operator>> (std::istream& is, CircularInt  dt)
 {  
-    is>> dt.current;  
+    int tmp;
+    is>> tmp;
+    dt.setCurrent(tmp);
     return is;  
 } 
 
