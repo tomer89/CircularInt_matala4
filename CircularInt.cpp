@@ -46,6 +46,12 @@ std::ostream& operator<<(std::ostream& os, CircularInt const &circ)
     return os;  
 } 
 
+std::istream& operator>> (std::istream& is, CircularInt const dt)
+{  
+    is>> dt.getCurrent();  
+    return is;  
+} 
+
 
 /*** UNARY FUNCS***********************************************
 * ++

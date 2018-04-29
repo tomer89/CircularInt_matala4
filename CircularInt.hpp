@@ -23,7 +23,8 @@ class CircularInt{
         //***overloading***
         //streaming
         friend std::ostream& operator<<(std::ostream& os, CircularInt const &circ) ;
-        
+        friend std::istream& operator>> (std::istream& is, CircularInt& dt);  
+
         //UNARY
         //postfix
         CircularInt& operator++(int);

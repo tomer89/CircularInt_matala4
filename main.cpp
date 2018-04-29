@@ -133,7 +133,9 @@ TEST_CASE("equals","==")
 */
 
 
-
+/**
+ * testing casting
+ */ 
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
 #include "CircularInt.hpp"
 #include "catch.hpp"
@@ -149,7 +151,12 @@ TEST_CASE("equals","==")
 {
     CircularInt hour {1, 10 , 7};
     int i = hour;
+    hour = 9; 
+    int j = i + hour;
+    CircularInt hour2 = i + hour;
     REQUIRE(i == 7 );
+    REQUIRE( hour.getCurrent() == 9 );
+    REQUIRE( j = (9 + 7) )
     //REQUIRE( 1 == hour );
 }
 
