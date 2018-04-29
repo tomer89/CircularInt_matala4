@@ -322,8 +322,18 @@ CircularInt& CircularInt::operator/=(const CircularInt other){
     }
 }
 
+/**
+ * -= INT
+ * -= CLASS
+ */ 
+
 CircularInt& CircularInt::operator-=(const int& rhs){
     setCurrent(moduloC(begin,end,(this->getCurrent()-rhs)));
+    return *this;
+}
+
+CircularInt& CircularInt::operator-=(const CircularInt& other){
+    setCurrent(moduloC(begin,end,(this->getCurrent()-other.current)));
     return *this;
 }
 
