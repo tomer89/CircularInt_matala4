@@ -1,5 +1,8 @@
+
+
 #ifndef CIRC_H
 #define CIRC_H
+#include <iostream>
 
 //class List;
 
@@ -18,17 +21,18 @@ class CircularInt{
         
         
         //***overloading***
-        
-        
-        
+        //streaming
         friend std::ostream& operator<<(std::ostream& os, CircularInt const &circ) ;
-        //friend CircularInt operator+=(const int& rhs);
+        
+        //UNARY
         //postfix
         CircularInt& operator++(int);
         //prefix
         CircularInt& operator++();
-        
-        
+        //postfix
+        CircularInt& operator--(int);
+        //prefix
+        CircularInt& operator--();
         
         /**
          * CLASS + CLASS
@@ -39,7 +43,6 @@ class CircularInt{
         friend CircularInt operator+(const CircularInt& arg1,const int& int2);
         friend CircularInt operator+(const int& int1,const CircularInt& arg2);
         CircularInt& operator+();
-        
         
         /**
          * CLASS - CLASS
@@ -52,9 +55,6 @@ class CircularInt{
         friend CircularInt operator-(const int &c1, const CircularInt &c2);
         friend CircularInt operator-(const CircularInt & c);
         
-        
-        
-        
         /**
          * CLASS * CLASS
          * CLASS * INT
@@ -66,22 +66,6 @@ class CircularInt{
         friend CircularInt operator*(const int &c1, const CircularInt &c2);
         friend CircularInt operator*(const CircularInt & c);
         
-        
-        
-        CircularInt& operator+=(const int& rhs);
-        CircularInt& operator+=(const CircularInt &i);
-        
-        CircularInt& operator*=(const int& i);
-        CircularInt& operator*=(const CircularInt &i);
-        
-        CircularInt& operator/=(const int& int2);
-        CircularInt& operator/=(const CircularInt other);
-        
-        
-        
-        
-        CircularInt& operator-=(const int& rhs);
-        CircularInt& operator-=(const CircularInt& rhs);
         /**
          * CLASS/CLASS
          * INT/CLASS
@@ -91,15 +75,21 @@ class CircularInt{
         friend CircularInt operator/(const CircularInt &c1, const CircularInt &c2);
         friend CircularInt operator/(const CircularInt &c1, const int &int2);
         friend CircularInt operator/(const int &int1, const CircularInt &c2);
-        //friend CircularInt operator/(const CircularInt & c);
-        /*
-        friend CircularInt operator/(const int &c1, const CircularInt &c2);
-        friend CircularInt operator/(const CircularInt &c2,const int &c1);
+        //CircularInt operator/();
         
-        //end void operator/(const int &c1);
+                
+        CircularInt& operator+=(const int& rhs);
+        CircularInt& operator+=(const CircularInt &i);
         
-        CircularInt operator/ ( int num);
-*/
+        CircularInt& operator*=(const int& i);
+        CircularInt& operator*=(const CircularInt &i);
+        
+        CircularInt& operator/=(const int& int2);
+        CircularInt& operator/=(const CircularInt other);
+        
+        CircularInt& operator-=(const int& rhs);
+        CircularInt& operator-=(const CircularInt& rhs);
+        
         /**
          * CLASS == CLASS
          * INT == CLASS
@@ -162,6 +152,9 @@ class CircularInt{
         
         CircularInt  & operator= (const CircularInt & other);
         CircularInt  & operator= (const int & other);
+        
+        CircularInt(int n): CircularInt(1, 12 , n) { }            //since all the examples in the tests are hours I took liberty to assume that the conversion will be as: 1 -> 12
+        /*explicit*/ operator int() const{ return current;};
         
         
 

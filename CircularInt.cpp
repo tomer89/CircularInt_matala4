@@ -47,10 +47,12 @@ std::ostream& operator<<(std::ostream& os, CircularInt const &circ)
 } 
 
 
-//*** UNARY FUNCS***********************************************
-
+/*** UNARY FUNCS***********************************************
+* ++
+* --
+*/ 
 CircularInt& CircularInt::operator++(){
-    setCurrent((this->getCurrent() + 1)%end);
+    setCurrent(moduloC(begin,end,(this->getCurrent() + 1)));
     return *this;
 }
 
@@ -61,6 +63,17 @@ CircularInt& CircularInt::operator++(int i){
     return result;  
 }
 
+
+CircularInt& CircularInt::operator--(){
+    setCurrent(moduloC(begin,end,(this->getCurrent() - 1)));
+    return *this;
+}
+
+CircularInt& CircularInt::operator--(int i){
+    CircularInt result(*this);   // make a copy for result 
+    --(*this);                   // Now use the prefix version to do the work
+    return result;  
+}
 
 
 
@@ -225,6 +238,29 @@ CircularInt operator/(const int &int1, const CircularInt &c2){
         throw (std::string)"No Answer";
     }
 }
+
+
+/*CircularInt::operator int() const { 
+	return current; 
+}*/
+
+/*CircularInt CircularInt::operator/(){
+            // TWO OPTIONS: 11 (since 11*2=10) or 5 (since 5*2=10 too).
+    bool flag = true;
+    int i = begin;
+    for( ; i <= end && flag ;i++ ){
+        if(moduloC(begin,end,i * current)== current)
+            flag = false;
+    }
+    if(!flag){
+        //c.current = i - 1;                                       
+        CircularInt result = CircularInt(begin,end,(i-1));       // since i was incremented last stage
+        return result; // call the first one
+    }
+    else{
+        throw (std::string)"No Answer";
+    }
+}*/
 
 //END OF / **********
 
