@@ -50,6 +50,9 @@ std::istream& operator>>(std::istream& is, CircularInt& dt)
 {  
     int tmp;
     is>> tmp;
+    if(tmp>dt.end || tmp<dt.begin){
+        throw (std::string)"not in range\n";
+    }
     dt.setCurrent(tmp);
     return is;  
 } 
