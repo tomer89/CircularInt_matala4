@@ -81,7 +81,7 @@ CircularInt& CircularInt::operator--(){
 }
 
 CircularInt& CircularInt::operator--(int i){
-    CircularInt result(*this);   // make a copy for result 
+    static CircularInt result(*this);   // make a copy for result 
     --(*this);                   // Now use the prefix version to do the work
     return result;  
 }
